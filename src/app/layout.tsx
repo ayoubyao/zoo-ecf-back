@@ -1,22 +1,34 @@
-"use client";
-import { baselightTheme } from "@/utils/theme/DefaultColors";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import '@/styles/globals.scss'
+// Next.js allows you to import CSS directly in .js files.
+// It handles optimization and all the necessary Webpack configuration to make this work.
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import ProgressBar from '@/components/ProgressBar/ProgressBar'
+import DictionaryProvider from '@/locales/DictionaryProvider'
+import { getDictionary } from '@/locales/dictionary'
+import getTheme from '@/themes/theme'
 
-export default function RootLayout({
+// You change this configuration value to false so that the Font Awesome core SVG library
+// will not try and insert <style> elements into the <head> of the page.
+// Next.js blocks this from happening anyway so you might as well not even try.
+// See https://fontawesome.com/v6/docs/web/use-with/react/use-with#next-js
+config.autoAddCss = false
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const dictionary = await getDictionary()
+
   return (
-    <html lang="en">
+    <html lang="en" data-bs-theme={getTheme()}>
       <body>
-        <ThemeProvider theme={baselightTheme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
+        <ProgressBar />
+        <DictionaryProvider dictionary={dictionary}>
           {children}
-        </ThemeProvider>
+        </DictionaryProvider>
       </body>
     </html>
-  );
+  )
 }
