@@ -9,7 +9,7 @@ interface CustomButtonParams extends CustomCellRendererProps {
 
 const ButtonCellRendererParams = (params: CustomButtonParams) => {
     const router = useRouter()
-    return <Button onClick={() => {router.push("/user/edit")}}>edit</Button>;
+    return <Button onClick={() => {router.push("/")}}>edit</Button>;
 };
 
 export default ButtonCellRendererParams;

@@ -1,3 +1,4 @@
+"use client" 
 import { User } from "@/models/user";
 import { UserServices } from "@/services/userServices";
 import type { NextPage } from "next";
@@ -6,8 +7,8 @@ import React, { useEffect, useState } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import Modal from "react-modal";
 
-export interface IUserFormProps {
-  refreshData: () => void;
+export interface IHabitatFormProps {
+
 }
 // Réglage des styles de la modal
 const customStyles = {
@@ -23,7 +24,7 @@ const customStyles = {
 
 
 
-const HabitatForm: NextPage<IUserFormProps> = (props) => {
+const HabitatForm: NextPage<IHabitatFormProps> = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
@@ -74,7 +75,7 @@ const HabitatForm: NextPage<IUserFormProps> = (props) => {
     try {
       const response = await UserServices.createUser(user);
       console.log("User created successfully:", response);
-      props.refreshData();
+
       closeModal();
     } catch (error) {
       console.error("Error creating user:", error);

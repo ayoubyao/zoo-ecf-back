@@ -116,7 +116,7 @@ export default function Index(props: IIndexProps) {
       className="ag-theme-quartz" // applying the Data Grid theme
       style={{ height: 500 }} // the Data Grid will fill the size of the parent container
     >
-      <HabitatForm refreshData={RefreshHabitats} />
+      <HabitatForm />
       <AgGridReact rowData={rowData} columnDefs={colDefs} />
     </div>
   );

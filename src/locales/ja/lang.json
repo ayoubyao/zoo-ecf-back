@@ -271,6 +271,7 @@
   },
   "sidebar": {
     "items": {
+      "management": "管理",
       "animals": "Animals",
       "habitats": "Habitats",
       "services": "Services",

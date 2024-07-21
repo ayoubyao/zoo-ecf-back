@@ -1,14 +1,11 @@
 "use client"
-import { User } from "@/models/user";
 import { UserServices } from "@/services/userServices";
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 
 export interface IUserFormProps {
-  refreshData: () => void;
-  user:User;
-  displayPopup:boolean;
+
 }
 // Réglage des styles de la modal
 const customStyles = {
@@ -25,7 +22,6 @@ const customStyles = {
 
 
 const UserFormEdit: NextPage<IUserFormProps> = (props) => {
-  const [modalIsOpen, setModalIsOpen] = useState(props.displayPopup);
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
@@ -70,12 +66,12 @@ const UserFormEdit: NextPage<IUserFormProps> = (props) => {
       username, // Added username property
       role_id
     };
-    const user: User = userData;
+    const user = userData;
 
     try {
       const response = await UserServices.createUser(user);
       console.log("User modify successfully:", response);
-      props.refreshData();
+
     } catch (error) {
       console.error("Error creating user:", error);
     }

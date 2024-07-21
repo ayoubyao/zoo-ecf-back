@@ -1,3 +1,4 @@
+"use client"
 import { User } from "@/models/user";
 import { UserServices } from "@/services/userServices";
 import type { NextPage } from "next";
@@ -7,7 +8,7 @@ import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import Modal from "react-modal";
 
 export interface IUserFormProps {
-  refreshData: () => void;
+  // refreshData: () => void;
 }
 // Réglage des styles de la modal
 const customStyles = {
@@ -74,7 +75,7 @@ const UserForm: NextPage<IUserFormProps> = (props) => {
     try {
       const response = await UserServices.createUser(user);
       console.log("User created successfully:", response);
-      props.refreshData();
+      // props.refreshData();
       closeModal();
     } catch (error) {
       console.error("Error creating user:", error);

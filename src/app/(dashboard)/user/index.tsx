@@ -46,7 +46,7 @@ export default function Index(props: IIndexProps) {
         email: string;
         Prenom: string;
         Profil: string;
-        Actions: { idUser: 0};
+        Actions: { idUser: number};
       },
       any
     >[]
@@ -108,7 +108,7 @@ export default function Index(props: IIndexProps) {
       className="ag-theme-quartz" // applying the Data Grid theme
       style={{ height: 500 }} // the Data Grid will fill the size of the parent container
     >
-      <UserForm refreshData={RefreshUsers} />
+      <UserForm />
       <AgGridReact rowData={rowData} columnDefs={colDefs} />
     </div>
   );
