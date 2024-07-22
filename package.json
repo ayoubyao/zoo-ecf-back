@@ -1,5 +1,5 @@
 {
-  "name": "ayoub dashboard",
+  "name": "@ayoub/dashboard",
   "engines": {
     "node": "20",
     "npm": "6"
