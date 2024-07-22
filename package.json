@@ -1,5 +1,9 @@
 {
-  "name": "nextjs-dashboard",
+  "name": "ayoub dashboard",
+  "engines": {
+    "node": "20",
+    "npm": "6"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
